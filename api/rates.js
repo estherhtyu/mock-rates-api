@@ -28,35 +28,18 @@ function generateShipmentId() {
 }
 
 /**
- * Validates the incoming request
+ * Validates the incoming request — only checks API key, ignores body structure
  * @param {import('@vercel/node').VercelRequest} req
  * @returns {{ valid: boolean, error?: string }}
  */
 function validateRequest(req) {
-  // Check HTTP method
-  if (req.method !== 'POST') {
-    return { valid: false, error: `Method ${req.method} not allowed. Use POST.` };
-  }
-
-  // Check API key
+  // Check API key — accepts both lowercase and original-case header names
   const apiKey = req.headers['api-key'] || req.headers['API-Key'];
   if (!apiKey) {
     return { valid: false, error: 'Missing API-Key header.' };
   }
   if (apiKey !== VALID_API_KEY) {
     return { valid: false, error: 'Invalid API key.' };
-  }
-
-  // Check body
-  const body = req.body;
-  if (!body || typeof body !== 'object') {
-    return { valid: false, error: 'Request body must be a JSON object.' };
-  }
-  if (!body.shipment) {
-    return { valid: false, error: 'Missing required field: shipment.' };
-  }
-  if (!body.shipment.ship_to) {
-    return { valid: false, error: 'Missing required field: shipment.ship_to.' };
   }
 
   return { valid: true };
