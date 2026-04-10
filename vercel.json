@@ -1,20 +1,4 @@
 {
   "version": "1.0.0",
-  "name": "mock-shipping-rates-api",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        }
-      ]
-    }
-  ]
+  "name": "mock-shipping-rates-api"
 }
