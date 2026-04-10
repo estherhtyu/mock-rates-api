@@ -1,0 +1,16 @@
+{
+  "name": "mock-shipping-rates-api",
+  "version": "1.0.0",
+  "description": "Mock shipping rates REST API for Adobe Commerce checkout starter kit testing",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0",
+    "vercel": "^37.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
